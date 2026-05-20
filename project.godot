@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="GameDev Finals"
+run/main_scene="uid://ccg8i3sv6o2au"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
