@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bhtt2rt4x331a"]
+
+[ext_resource type="Texture2D" uid="uid://dcutn2gvgtqcp" path="res://assets/sprites/entities/player_down_walk_cycle.png" id="1_oolk3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ig0a"]
+
+[node name="Node2D" type="Node2D" unique_id=1243990210]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1554944370]
+
+[node name="PlayerDownWalkCycle" type="Sprite2D" parent="CharacterBody2D" unique_id=1961861561]
+position = Vector2(48, 1)
+texture = ExtResource("1_oolk3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=807829330]
+shape = SubResource("RectangleShape2D_7ig0a")

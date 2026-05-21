@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8kjssuph1ynx"
-path="res://.godot/imported/silver_grass.png-59b0dcbf21a65fab0bb1aa6dc4893b26.ctex"
+uid="uid://ca6wbrvppymem"
+path="res://.godot/imported/props_shadow.png-70b184fac44be5ac29c6c155c96c652c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/silver_moon_city/silver_grass.png"
-dest_files=["res://.godot/imported/silver_grass.png-59b0dcbf21a65fab0bb1aa6dc4893b26.ctex"]
+source_file="res://assets/sprites/silver_moon_city/props_shadow.png"
+dest_files=["res://.godot/imported/props_shadow.png-70b184fac44be5ac29c6c155c96c652c.ctex"]
 
 [params]
 
