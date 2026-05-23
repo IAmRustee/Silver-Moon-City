@@ -85,6 +85,8 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_whvow")
 
+[sub_resource type="TileSet" id="TileSet_whvow"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ihkx5"]
 texture = ExtResource("3_exwae")
 texture_region_size = Vector2i(32, 32)
@@ -248,8 +250,6 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_ihkx5")
 sources/3 = SubResource("TileSetAtlasSource_0l513")
 
-[sub_resource type="TileSet" id="TileSet_whvow"]
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mpecr"]
 texture = ExtResource("5_css4l")
 texture_region_size = Vector2i(32, 32)
@@ -282,6 +282,8 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_mpecr")
 
+[sub_resource type="TileSet" id="TileSet_mpecr"]
+
 [node name="Silver Moon City Map" type="Node2D" unique_id=1140685439]
 
 [node name="BaseLand" type="TileMapLayer" parent="." unique_id=155227533]
@@ -289,14 +291,14 @@ tile_set = SubResource("TileSet_wrpqn")
 
 [node name="Grass Decor" type="TileMapLayer" parent="BaseLand" unique_id=294688637]
 
-[node name="[TemplateWall]2" type="TileMapLayer" parent="BaseLand" unique_id=200975206]
-tile_set = SubResource("TileSet_ihkx5")
-
-[node name="Walls1" type="TileMapLayer" parent="BaseLand" unique_id=1944902274]
-tile_set = SubResource("TileSet_ihkx5")
-
 [node name="Walls Shadow" type="TileMapLayer" parent="." unique_id=2081080702]
 tile_set = SubResource("TileSet_whvow")
+
+[node name="[TemplateWall]2" type="TileMapLayer" parent="Walls Shadow" unique_id=200975206]
+tile_set = SubResource("TileSet_ihkx5")
+
+[node name="Walls1" type="TileMapLayer" parent="Walls Shadow" unique_id=1944902274]
+tile_set = SubResource("TileSet_ihkx5")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=2121894354]
 y_sort_enabled = true
@@ -315,4 +317,7 @@ y_sort_enabled = true
 y_sort_enabled = true
 position = Vector2(434, 207)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1741488634]
+[node name="Stairs Shadow" type="TileMapLayer" parent="." unique_id=1741488634]
+tile_set = SubResource("TileSet_mpecr")
+
+[node name="Stairs" type="TileMapLayer" parent="Stairs Shadow" unique_id=1375915286]
