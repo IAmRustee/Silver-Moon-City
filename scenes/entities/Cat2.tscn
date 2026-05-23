@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dqe1mkmvbn4d0"]
+
+[ext_resource type="Script" uid="uid://b057fy81gbeaa" path="res://scenes/entities/Cat2.gd" id="1_u7y7v"]
+[ext_resource type="Texture2D" uid="uid://bujkkvstcg3v8" path="res://Animals - FREE/cat 2/cat2 (1).png" id="2_u7y7v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_msh4o"]
+radius = 12.0
+height = 34.0
+
+[node name="Cat2" type="CharacterBody2D" unique_id=1868327751]
+script = ExtResource("1_u7y7v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1720713945]
+texture = ExtResource("2_u7y7v")
+
+[node name="Timer" type="Timer" parent="." unique_id=1673174120]
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=985680352]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_msh4o")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,4 @@
+LICENSE 
+- You can use these assets in personal and commercial projects.
+- You can modify the assets to fit your needs.
+- You MAY NOT resell or redistribute these assets as standalone files.

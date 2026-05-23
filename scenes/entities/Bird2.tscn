@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bulaa3rfbgwkg"]
+
+[ext_resource type="Script" uid="uid://br5borlf7fwlt" path="res://scenes/entities/Bird2.gd" id="1_666le"]
+[ext_resource type="Texture2D" uid="uid://d3nej1p0d21nc" path="res://Animals - FREE/bird 2/bird2 (1).png" id="1_ghxf5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_666le"]
+radius = 11.0
+height = 26.0
+
+[node name="Bird2" type="CharacterBody2D" unique_id=424581665]
+script = ExtResource("1_666le")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1338253327]
+texture = ExtResource("1_ghxf5")
+
+[node name="Timer" type="Timer" parent="." unique_id=151353443]
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=18195601]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_666le")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
