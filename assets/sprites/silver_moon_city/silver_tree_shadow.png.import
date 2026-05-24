@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca6wbrvppymem"
-path="res://.godot/imported/props_shadow.png-70b184fac44be5ac29c6c155c96c652c.ctex"
+uid="uid://brkhsmi32rvev"
+path="res://.godot/imported/silver_tree_shadow.png-7294474e28c7b23e989d9304d24901ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/silver_moon_city/props_shadow.png"
-dest_files=["res://.godot/imported/props_shadow.png-70b184fac44be5ac29c6c155c96c652c.ctex"]
+source_file="res://assets/sprites/silver_moon_city/silver_tree_shadow.png"
+dest_files=["res://.godot/imported/silver_tree_shadow.png-7294474e28c7b23e989d9304d24901ea.ctex"]
 
 [params]
 

@@ -15,7 +15,7 @@ func update_slots():
 		slots[i].update(inv.slots[i])
 	
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("i"):
+	if Input.is_action_just_pressed("inventory toggle"):
 		if is_open:
 			close()
 		else:
