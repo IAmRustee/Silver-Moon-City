@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://dcxae30wf60p4" path="res://scenes/gui/player_inventory/inv_ui.gd" id="1_fp4ns"]
 [ext_resource type="Texture2D" uid="uid://b3o1bajt4c01a" path="res://assets/sprites/gui/inventory/inventory_rect.png" id="2_16sqq"]
 [ext_resource type="PackedScene" uid="uid://bmg63i02oye5j" path="res://scenes/gui/player_inventory/slot.tscn" id="3_6374l"]
+[ext_resource type="Resource" uid="uid://bxusx2ru00e44" path="res://items/wood.tres" id="5_mvtq6"]
 [ext_resource type="Texture2D" uid="uid://bxo6khqub3e8l" path="res://assets/sprites/items/wood_sword.png" id="5_vouvf"]
 [ext_resource type="Script" uid="uid://cjrkpakcb0c00" path="res://scripts/wooden_sword_craft.gd" id="6_mvtq6"]
+[ext_resource type="Resource" uid="uid://bkloftwkwigbw" path="res://items/wooden_multitool.tres" id="6_y4eox"]
 [ext_resource type="Texture2D" uid="uid://d3u8c2c46cwcc" path="res://assets/sprites/items/wood.png" id="7_y4eox"]
 [ext_resource type="Texture2D" uid="uid://ud2eona2rqj4" path="res://assets/sprites/items/wooden_multitool.png" id="8_s5510"]
 [ext_resource type="Texture2D" uid="uid://cxxfv02r8fovd" path="res://assets/sprites/items/stone_sword.png" id="9_5fdc1"]
@@ -33,6 +35,81 @@ patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect" unique_id=762396323]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -46.0
+offset_right = 58.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="InvUISlot" parent="NinePatchRect/GridContainer" unique_id=1460814906 instance=ExtResource("3_6374l")]
+layout_mode = 2
+
+[node name="InvUISlot2" parent="NinePatchRect/GridContainer" unique_id=1206584563 instance=ExtResource("3_6374l")]
+layout_mode = 2
+
+[node name="InvUISlot3" parent="NinePatchRect/GridContainer" unique_id=1269379151 instance=ExtResource("3_6374l")]
+layout_mode = 2
+
+[node name="InvUISlot4" parent="NinePatchRect/GridContainer" unique_id=183543142 instance=ExtResource("3_6374l")]
+layout_mode = 2
+
+[node name="InvUISlot5" parent="NinePatchRect/GridContainer" unique_id=1297060554 instance=ExtResource("3_6374l")]
+layout_mode = 2
+
+[node name="InvUISlot6" parent="NinePatchRect/GridContainer" unique_id=1990451079 instance=ExtResource("3_6374l")]
+layout_mode = 2
+
+[node name="InvUISlot7" parent="NinePatchRect/GridContainer" unique_id=1485995537 instance=ExtResource("3_6374l")]
+layout_mode = 2
+
+[node name="InvUISlot8" parent="NinePatchRect/GridContainer" unique_id=1878158425 instance=ExtResource("3_6374l")]
+layout_mode = 2
+
+[node name="InvUISlot9" parent="NinePatchRect/GridContainer" unique_id=1021221657 instance=ExtResource("3_6374l")]
+layout_mode = 2
+
+[node name="InvUISlot10" parent="NinePatchRect/GridContainer" unique_id=557483121 instance=ExtResource("3_6374l")]
+layout_mode = 2
+
+[node name="InvUISlot11" parent="NinePatchRect/GridContainer" unique_id=2109711522 instance=ExtResource("3_6374l")]
+layout_mode = 2
+
+[node name="InvUISlot12" parent="NinePatchRect/GridContainer" unique_id=1269215262 instance=ExtResource("3_6374l")]
+layout_mode = 2
+
+[node name="InvUISlot13" parent="NinePatchRect/GridContainer" unique_id=438023781 instance=ExtResource("3_6374l")]
+layout_mode = 2
+
+[node name="InvUISlot14" parent="NinePatchRect/GridContainer" unique_id=1056000720 instance=ExtResource("3_6374l")]
+layout_mode = 2
+
+[node name="InvUISlot15" parent="NinePatchRect/GridContainer" unique_id=431957848 instance=ExtResource("3_6374l")]
+layout_mode = 2
+
+[node name="InvUISlot16" parent="NinePatchRect/GridContainer" unique_id=507923158 instance=ExtResource("3_6374l")]
+layout_mode = 2
+
+[node name="InvUISlot17" parent="NinePatchRect/GridContainer" unique_id=1915036459 instance=ExtResource("3_6374l")]
+layout_mode = 2
+
+[node name="InvUISlot18" parent="NinePatchRect/GridContainer" unique_id=1556443105 instance=ExtResource("3_6374l")]
+layout_mode = 2
+
+[node name="InvUISlot19" parent="NinePatchRect/GridContainer" unique_id=619928139 instance=ExtResource("3_6374l")]
+layout_mode = 2
+
+[node name="InvUISlot20" parent="NinePatchRect/GridContainer" unique_id=455422773 instance=ExtResource("3_6374l")]
+layout_mode = 2
 
 [node name="Crafting" type="Control" parent="NinePatchRect" unique_id=977279523]
 anchors_preset = 0
@@ -71,6 +148,8 @@ grow_vertical = 2
 layout_mode = 2
 icon = ExtResource("5_vouvf")
 script = ExtResource("6_mvtq6")
+wood = ExtResource("5_mvtq6")
+result = ExtResource("6_y4eox")
 
 [node name="Label" type="Label" parent="NinePatchRect/Crafting/CraftRect/GridContainer/wooden_sword" unique_id=77354693]
 layout_mode = 0
@@ -205,80 +284,5 @@ texture = ExtResource("14_cblun")
 [node name="Moonstone" type="Sprite2D" parent="NinePatchRect/Crafting/CraftRect/GridContainer/moonstone multitool" unique_id=1810948032]
 position = Vector2(65.5, 19)
 texture = ExtResource("15_nlgmm")
-
-[node name="GridContainer" type="GridContainer" parent="NinePatchRect" unique_id=762396323]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -58.0
-offset_top = -46.0
-offset_right = 58.0
-offset_bottom = 46.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 5
-
-[node name="InvUISlot" parent="NinePatchRect/GridContainer" unique_id=1460814906 instance=ExtResource("3_6374l")]
-layout_mode = 2
-
-[node name="InvUISlot2" parent="NinePatchRect/GridContainer" unique_id=1206584563 instance=ExtResource("3_6374l")]
-layout_mode = 2
-
-[node name="InvUISlot3" parent="NinePatchRect/GridContainer" unique_id=1269379151 instance=ExtResource("3_6374l")]
-layout_mode = 2
-
-[node name="InvUISlot4" parent="NinePatchRect/GridContainer" unique_id=183543142 instance=ExtResource("3_6374l")]
-layout_mode = 2
-
-[node name="InvUISlot5" parent="NinePatchRect/GridContainer" unique_id=1297060554 instance=ExtResource("3_6374l")]
-layout_mode = 2
-
-[node name="InvUISlot6" parent="NinePatchRect/GridContainer" unique_id=1990451079 instance=ExtResource("3_6374l")]
-layout_mode = 2
-
-[node name="InvUISlot7" parent="NinePatchRect/GridContainer" unique_id=1485995537 instance=ExtResource("3_6374l")]
-layout_mode = 2
-
-[node name="InvUISlot8" parent="NinePatchRect/GridContainer" unique_id=1878158425 instance=ExtResource("3_6374l")]
-layout_mode = 2
-
-[node name="InvUISlot9" parent="NinePatchRect/GridContainer" unique_id=1021221657 instance=ExtResource("3_6374l")]
-layout_mode = 2
-
-[node name="InvUISlot10" parent="NinePatchRect/GridContainer" unique_id=557483121 instance=ExtResource("3_6374l")]
-layout_mode = 2
-
-[node name="InvUISlot11" parent="NinePatchRect/GridContainer" unique_id=2109711522 instance=ExtResource("3_6374l")]
-layout_mode = 2
-
-[node name="InvUISlot12" parent="NinePatchRect/GridContainer" unique_id=1269215262 instance=ExtResource("3_6374l")]
-layout_mode = 2
-
-[node name="InvUISlot13" parent="NinePatchRect/GridContainer" unique_id=438023781 instance=ExtResource("3_6374l")]
-layout_mode = 2
-
-[node name="InvUISlot14" parent="NinePatchRect/GridContainer" unique_id=1056000720 instance=ExtResource("3_6374l")]
-layout_mode = 2
-
-[node name="InvUISlot15" parent="NinePatchRect/GridContainer" unique_id=431957848 instance=ExtResource("3_6374l")]
-layout_mode = 2
-
-[node name="InvUISlot16" parent="NinePatchRect/GridContainer" unique_id=507923158 instance=ExtResource("3_6374l")]
-layout_mode = 2
-
-[node name="InvUISlot17" parent="NinePatchRect/GridContainer" unique_id=1915036459 instance=ExtResource("3_6374l")]
-layout_mode = 2
-
-[node name="InvUISlot18" parent="NinePatchRect/GridContainer" unique_id=1556443105 instance=ExtResource("3_6374l")]
-layout_mode = 2
-
-[node name="InvUISlot19" parent="NinePatchRect/GridContainer" unique_id=619928139 instance=ExtResource("3_6374l")]
-layout_mode = 2
-
-[node name="InvUISlot20" parent="NinePatchRect/GridContainer" unique_id=455422773 instance=ExtResource("3_6374l")]
-layout_mode = 2
 
 [connection signal="pressed" from="NinePatchRect/Crafting/CraftRect/GridContainer/wooden_sword" to="NinePatchRect/Crafting/CraftRect/GridContainer/wooden_sword" method="_on_pressed"]
