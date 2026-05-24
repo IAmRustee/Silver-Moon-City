@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://c5eo3elwmb6se"
-path="res://.godot/imported/u_51wf53qyw2-rabbit-sounds-358172.mp3-cf98ef56176fb9ee6036bc0c5014a7d3.mp3str"
+path="res://.godot/imported/u_51wf53qyw2-rabbit-sounds-358172.mp3-d8b9b4db0ae58eb54f049c1938f85d9f.mp3str"
 
 [deps]
 
-source_file="res://u_51wf53qyw2-rabbit-sounds-358172.mp3"
-dest_files=["res://.godot/imported/u_51wf53qyw2-rabbit-sounds-358172.mp3-cf98ef56176fb9ee6036bc0c5014a7d3.mp3str"]
+source_file="res://scenes/entities/Animals/u_51wf53qyw2-rabbit-sounds-358172.mp3"
+dest_files=["res://.godot/imported/u_51wf53qyw2-rabbit-sounds-358172.mp3-d8b9b4db0ae58eb54f049c1938f85d9f.mp3str"]
 
 [params]
 
