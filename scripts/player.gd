@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @export var inventory: Inv
 
-const maxSpeed: int = 200
+const maxSpeed: int = 120
 const acceleration: int = 5
 const friction: int = 8
 
