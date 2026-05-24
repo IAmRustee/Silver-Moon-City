@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://mdk3hcnslkr8"]
+
+[ext_resource type="Script" uid="uid://dpw6hq6kqo3j6" path="res://scripts/inventory_item.gd.gd" id="1_l22ry"]
+[ext_resource type="Texture2D" uid="uid://bnssijge8c4vs" path="res://assets/sprites/silver_moon_city/potion_small.png" id="2_570g0"]
+
+[resource]
+script = ExtResource("1_l22ry")
+name = "Small Potion"
+texture = ExtResource("2_570g0")
+metadata/_custom_type_script = "uid://dpw6hq6kqo3j6"

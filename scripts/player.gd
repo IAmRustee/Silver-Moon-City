@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var animationPlayer: AnimationPlayer = $Sprite2D/AnimationPlayer
 
+@export var inventory: Inv
+
 const maxSpeed: int = 200
 const acceleration: int = 5
 const friction: int = 8
@@ -30,3 +32,6 @@ func _physics_process(delta: float) -> void:
 	velocity = lerp(velocity, input * maxSpeed, lerpWeight)
 	
 	move_and_slide()
+
+func collect(item):
+	inventory.insert(item)
