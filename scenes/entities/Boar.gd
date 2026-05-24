@@ -22,6 +22,7 @@ const DIRECTIONS = [
 
 @onready var timer = $Timer
 @onready var sprite = $AnimatedSprite2D
+@onready var sound = $AudioStreamPlayer2D
 
 func _ready():
 
@@ -68,9 +69,11 @@ func random_move():
 
 	if is_wall(target):
 
-		# Bounce off walls and pick another direction
 		current_dir = DIRECTIONS.pick_random()
 		steps_remaining = randi_range(10, 20)
+
+		if not sound.playing:
+			sound.play()
 
 		play_anim("Idle")
 		return
@@ -83,6 +86,12 @@ func random_move():
 		await get_tree().create_timer(0.3).timeout
 
 	play_anim("Walk")
+
+	# Random boar snort while walking
+	if randi() % 6 == 0:
+
+		if not sound.playing:
+			sound.play()
 
 	grid_pos = target
 
@@ -115,6 +124,11 @@ func play_anim(action: String):
 		if sprite.animation != anim_name:
 			sprite.play(anim_name)
 
+func play_footstep():
+
+	if not sound.playing:
+		sound.play()
+
 func is_wall(pos: Vector2i) -> bool:
 
 	var walls = get_tree().get_first_node_in_group("walls")
@@ -122,4 +136,4 @@ func is_wall(pos: Vector2i) -> bool:
 	if walls == null:
 		return false
 
-	return walls.get_cell_source_id(0, pos) != -1
+	return walls.get_cell_source_id(pos) != -1

@@ -28,6 +28,7 @@ const DIRECTIONS = [
 
 @onready var timer = $Timer
 @onready var sprite = $AnimatedSprite2D
+@onready var sound = $AudioStreamPlayer2D
 
 func _ready():
 
@@ -42,31 +43,26 @@ func _ready():
 
 func _physics_process(delta):
 
-	# Smooth movement
 	position = position.move_toward(
 		target_position,
 		move_speed * delta
 	)
 
-	# Reached tile
 	if position.distance_to(target_position) < 1:
 
 		position = target_position
 
-		# Continue movement immediately
 		if moving:
 			moving = false
 			random_move()
 
 func _on_timer_timeout():
 
-	# Only start movement if not already moving
 	if not moving:
 		random_move()
 
 func random_move():
 
-	# Choose new direction after several tiles
 	if steps_remaining <= 0:
 
 		current_dir = DIRECTIONS.pick_random()
@@ -74,12 +70,10 @@ func random_move():
 		# Long movement bursts
 		steps_remaining = randi_range(6, 12)
 
-	# Face movement direction
 	update_facing(current_dir)
 
 	var target = grid_pos + current_dir
 
-	# Wall collision handling
 	if is_wall(target):
 
 		steps_remaining = 0
@@ -91,6 +85,9 @@ func random_move():
 
 		play_anim("Idle")
 
+		if not sound.playing:
+			sound.play()
+
 		await get_tree().create_timer(0.08).timeout
 
 	# Run sometimes
@@ -98,6 +95,12 @@ func random_move():
 		play_anim("Run")
 	else:
 		play_anim("Walk")
+
+	# Occasional rabbit sound
+	if randi() % 10 == 0:
+
+		if not sound.playing:
+			sound.play()
 
 	grid_pos = target
 
@@ -127,9 +130,13 @@ func play_anim(action: String):
 
 	if sprite.sprite_frames.has_animation(anim_name):
 
-		# Prevent animation restart spam
 		if sprite.animation != anim_name:
 			sprite.play(anim_name)
+
+func play_footstep():
+
+	if not sound.playing:
+		sound.play()
 
 func is_wall(pos: Vector2i) -> bool:
 
@@ -138,4 +145,4 @@ func is_wall(pos: Vector2i) -> bool:
 	if walls == null:
 		return false
 
-	return walls.get_cell_source_id(0, pos) != -1
+	return walls.get_cell_source_id(pos) != -1

@@ -1,11 +1,9 @@
 extends CharacterBody2D
 
 @export var tile_size := 16
-@export var move_speed := 130.0
+@export var move_speed := 70.0
 
 var grid_pos = Vector2i.ZERO
-var facing = "F"
-
 var target_position: Vector2
 var moving := false
 
@@ -16,15 +14,9 @@ const DIRECTIONS = [
 	Vector2i(1, 0),
 	Vector2i(-1, 0),
 	Vector2i(0, 1),
-	Vector2i(0, -1),
-
-	Vector2i(1, 1),
-	Vector2i(-1, -1),
-	Vector2i(1, -1),
-	Vector2i(-1, 1)
+	Vector2i(0, -1)
 ]
 
-@onready var timer = $Timer
 @onready var sprite = $AnimatedSprite2D
 @onready var sound = $AudioStreamPlayer2D
 
@@ -33,10 +25,12 @@ func _ready():
 	grid_pos = Vector2i(position / tile_size)
 	target_position = position
 
-	current_dir = get_valid_direction()
-	steps_remaining = randi_range(3, 8)
+	current_dir = DIRECTIONS.pick_random()
+	steps_remaining = randi_range(2, 4)
 
-	play_anim("Walk")
+	play_anim("Idle")
+
+	random_move()
 
 func _physics_process(delta):
 
@@ -51,98 +45,76 @@ func _physics_process(delta):
 
 		if moving:
 			moving = false
+
+			# Slime occasionally pauses
+			if steps_remaining <= 0:
+
+				play_anim("Idle")
+
+				# Slime squish sound
+				if not sound.playing:
+					sound.play()
+
+				await get_tree().create_timer(
+					randf_range(0.4, 0.8)
+				).timeout
+
 			random_move()
-
-func _on_timer_timeout():
-
-	if not moving:
-		random_move()
 
 func random_move():
 
 	if steps_remaining <= 0:
 
-		current_dir = get_valid_direction()
+		current_dir = DIRECTIONS.pick_random()
 
-		# Foxes change direction often
-		steps_remaining = randi_range(3, 8)
-
-	update_facing(current_dir)
+		# Slime changes direction frequently
+		steps_remaining = randi_range(2, 4)
 
 	var target = grid_pos + current_dir
 
 	if is_wall(target):
 
-		current_dir = get_valid_direction()
-		steps_remaining = randi_range(3, 8)
+		steps_remaining = 0
+
+		# Wall bump squish
+		if randi() % 2 == 0:
+
+			if not sound.playing:
+				sound.play()
 
 		random_move()
 		return
 
-	# Brief observation pause
-	if randi() % 10 == 0:
+	# Flip slime
+	if current_dir.x > 0:
+		sprite.flip_h = false
 
-		play_anim("Idle")
-
-		if not sound.playing:
-			sound.play()
-
-		await get_tree().create_timer(0.2).timeout
+	elif current_dir.x < 0:
+		sprite.flip_h = true
 
 	play_anim("Walk")
 
-	# Occasional fox sound while moving
-	if randi() % 7 == 0:
+	# Occasional movement squish
+	if randi() % 6 == 0:
 
 		if not sound.playing:
 			sound.play()
 
 	grid_pos = target
-
 	target_position = Vector2(grid_pos) * tile_size
 
 	moving = true
 
 	steps_remaining -= 1
 
-func get_valid_direction() -> Vector2i:
-
-	var valid_dirs = []
-
-	for dir in DIRECTIONS:
-
-		if !is_wall(grid_pos + dir):
-			valid_dirs.append(dir)
-
-	if valid_dirs.is_empty():
-		return Vector2i.ZERO
-
-	return valid_dirs.pick_random()
-
-func update_facing(dir: Vector2i):
-
-	if dir.x > 0:
-		facing = "R"
-
-	elif dir.x < 0:
-		facing = "L"
-
-	elif dir.y > 0:
-		facing = "F"
-
-	elif dir.y < 0:
-		facing = "B"
-
-func play_anim(action: String):
-
-	var anim_name = action + " (" + facing + ")"
+func play_anim(anim_name: String):
 
 	if sprite.sprite_frames.has_animation(anim_name):
 
 		if sprite.animation != anim_name:
 			sprite.play(anim_name)
 
-func play_footstep():
+func play_squish():
 
 	if not sound.playing:
 		sound.play()

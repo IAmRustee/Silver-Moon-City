@@ -1,11 +1,9 @@
 extends CharacterBody2D
 
 @export var tile_size := 16
-@export var move_speed := 130.0
+@export var move_speed := 40.0
 
 var grid_pos = Vector2i.ZERO
-var facing = "F"
-
 var target_position: Vector2
 var moving := false
 
@@ -16,15 +14,9 @@ const DIRECTIONS = [
 	Vector2i(1, 0),
 	Vector2i(-1, 0),
 	Vector2i(0, 1),
-	Vector2i(0, -1),
-
-	Vector2i(1, 1),
-	Vector2i(-1, -1),
-	Vector2i(1, -1),
-	Vector2i(-1, 1)
+	Vector2i(0, -1)
 ]
 
-@onready var timer = $Timer
 @onready var sprite = $AnimatedSprite2D
 @onready var sound = $AudioStreamPlayer2D
 
@@ -33,10 +25,12 @@ func _ready():
 	grid_pos = Vector2i(position / tile_size)
 	target_position = position
 
-	current_dir = get_valid_direction()
-	steps_remaining = randi_range(3, 8)
+	current_dir = DIRECTIONS.pick_random()
+	steps_remaining = randi_range(8, 15)
 
 	play_anim("Walk")
+
+	random_move()
 
 func _physics_process(delta):
 
@@ -53,46 +47,51 @@ func _physics_process(delta):
 			moving = false
 			random_move()
 
-func _on_timer_timeout():
-
-	if not moving:
-		random_move()
-
 func random_move():
 
+	# Keep same direction for several tiles
 	if steps_remaining <= 0:
 
-		current_dir = get_valid_direction()
-
-		# Foxes change direction often
-		steps_remaining = randi_range(3, 8)
-
-	update_facing(current_dir)
+		current_dir = DIRECTIONS.pick_random()
+		steps_remaining = randi_range(8, 15)
 
 	var target = grid_pos + current_dir
 
+	# Wall collision
 	if is_wall(target):
 
-		current_dir = get_valid_direction()
-		steps_remaining = randi_range(3, 8)
+		steps_remaining = 0
+
+		# Zombie bumps/groans sometimes
+		if randi() % 2 == 0:
+
+			if not sound.playing:
+				sound.play()
 
 		random_move()
 		return
 
-	# Brief observation pause
-	if randi() % 10 == 0:
+	# Flip sprite left/right
+	if current_dir.x > 0:
+		sprite.flip_h = false
+
+	elif current_dir.x < 0:
+		sprite.flip_h = true
+
+	# Rare zombie pause
+	if randi() % 18 == 0:
 
 		play_anim("Idle")
 
 		if not sound.playing:
 			sound.play()
 
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.25).timeout
 
 	play_anim("Walk")
 
-	# Occasional fox sound while moving
-	if randi() % 7 == 0:
+	# Occasional zombie groan while walking
+	if randi() % 10 == 0:
 
 		if not sound.playing:
 			sound.play()
@@ -105,44 +104,15 @@ func random_move():
 
 	steps_remaining -= 1
 
-func get_valid_direction() -> Vector2i:
-
-	var valid_dirs = []
-
-	for dir in DIRECTIONS:
-
-		if !is_wall(grid_pos + dir):
-			valid_dirs.append(dir)
-
-	if valid_dirs.is_empty():
-		return Vector2i.ZERO
-
-	return valid_dirs.pick_random()
-
-func update_facing(dir: Vector2i):
-
-	if dir.x > 0:
-		facing = "R"
-
-	elif dir.x < 0:
-		facing = "L"
-
-	elif dir.y > 0:
-		facing = "F"
-
-	elif dir.y < 0:
-		facing = "B"
-
-func play_anim(action: String):
-
-	var anim_name = action + " (" + facing + ")"
+func play_anim(anim_name: String):
 
 	if sprite.sprite_frames.has_animation(anim_name):
 
+		# Prevent animation restart spam
 		if sprite.animation != anim_name:
 			sprite.play(anim_name)
 
-func play_footstep():
+func play_groan():
 
 	if not sound.playing:
 		sound.play()

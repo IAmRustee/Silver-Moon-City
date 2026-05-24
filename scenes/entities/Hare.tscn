@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b47g1yxs35np0" path="res://craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack/PNG/With_Shadow/Hare/Hare_Hurt_with_shadow.png" id="2_lwifl"]
 [ext_resource type="Texture2D" uid="uid://2ukt5c0ooxwv" path="res://craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack/PNG/With_Shadow/Hare/Hare_Run_with_shadow.png" id="4_hsyyy"]
 [ext_resource type="Texture2D" uid="uid://d1yywwih7w6eu" path="res://craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack/PNG/With_Shadow/Hare/Hare_Walk_with_shadow.png" id="5_k4ssf"]
+[ext_resource type="AudioStream" uid="uid://c5eo3elwmb6se" path="res://u_51wf53qyw2-rabbit-sounds-358172.mp3" id="7_k4ssf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p050s"]
 atlas = ExtResource("1_oom5f")
@@ -827,5 +828,8 @@ shape = SubResource("CapsuleShape2D_wh78f")
 [node name="Timer" type="Timer" parent="." unique_id=1378228035]
 wait_time = 0.6
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1974922588]
+stream = ExtResource("7_k4ssf")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

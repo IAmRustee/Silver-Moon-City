@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bg4pcs8h0mi8j" path="res://craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack/PNG/With_Shadow/Fox/Fox_Idle_with_shadow.png" id="3_i2lbt"]
 [ext_resource type="Texture2D" uid="uid://codo7iqn2bvui" path="res://craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack/PNG/With_Shadow/Fox/Fox_Run_with_shadow.png" id="4_7yyjb"]
 [ext_resource type="Texture2D" uid="uid://bmgwfxu2e5acc" path="res://craftpix-net-789196-free-top-down-hunt-animals-pixel-sprite-pack/PNG/With_Shadow/Fox/Fox_walk_with_shadow.png" id="5_dx5jm"]
+[ext_resource type="AudioStream" uid="uid://bjeka6slydcd5" path="res://freesound_community-fox-scream-in-the-forest-26634.mp3" id="7_i2lbt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pnw5e"]
 atlas = ExtResource("1_pnw5e")
@@ -856,5 +857,8 @@ shape = SubResource("CapsuleShape2D_vtrgu")
 [node name="Timer" type="Timer" parent="." unique_id=519695782]
 wait_time = 0.7
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1321323638]
+stream = ExtResource("7_i2lbt")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
