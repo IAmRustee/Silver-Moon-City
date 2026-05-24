@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cgrcr4icna2gu"]
+
+[ext_resource type="Script" uid="uid://ftw34ym84fro" path="res://scenes/interactibles/trees/tree.gd" id="1_bomv0"]
+[ext_resource type="Texture2D" uid="uid://d3i0hlgt5xed3" path="res://assets/sprites/interactibles/tree_2.png" id="2_bomv0"]
+[ext_resource type="Resource" uid="uid://bxusx2ru00e44" path="res://items/wood.tres" id="2_mo8ih"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f76n7"]
+size = Vector2(12.5, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo8ih"]
+atlas = ExtResource("2_bomv0")
+region = Rect2(96, 0, 96, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tppot"]
+atlas = ExtResource("2_bomv0")
+region = Rect2(0, 0, 96, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e8fpi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo8ih")
+}],
+"loop": true,
+"name": &"cut",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tppot")
+}],
+"loop": true,
+"name": &"whole",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sd03g"]
+size = Vector2(32, 32)
+
+[node name="tree_2" type="Node2D" unique_id=20202587]
+position = Vector2(16, 16)
+script = ExtResource("1_bomv0")
+item = ExtResource("2_mo8ih")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=944659364]
+
+[node name="tree_hitbox" type="CollisionShape2D" parent="StaticBody2D" unique_id=608348624]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_f76n7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=506841952]
+position = Vector2(0, -66)
+sprite_frames = SubResource("SpriteFrames_e8fpi")
+animation = &"whole"
+
+[node name="pickable_area" type="Area2D" parent="StaticBody2D" unique_id=1391091416]
+position = Vector2(-16, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/pickable_area" unique_id=1222360997]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_sd03g")
+
+[node name="growth_timer" type="Timer" parent="StaticBody2D" unique_id=1588340025]
+wait_time = 10.0
+
+[node name="Marker2D" type="Marker2D" parent="StaticBody2D" unique_id=2027029605]
+position = Vector2(0, -11)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="StaticBody2D" unique_id=1636573798]
+position = Vector2(28, 14)
+
+[connection signal="body_entered" from="StaticBody2D/pickable_area" to="." method="_on_pickable_area_body_entered"]
+[connection signal="body_exited" from="StaticBody2D/pickable_area" to="." method="_on_pickable_area_body_exited"]
+[connection signal="timeout" from="StaticBody2D/growth_timer" to="." method="_on_growth_timer_timeout"]

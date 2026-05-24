@@ -10,18 +10,18 @@ const friction: int = 8
 
 func _physics_process(delta: float) -> void:
 	var input = Vector2(
-		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
-		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+		Input.get_action_strength("d") - Input.get_action_strength("a"),
+		Input.get_action_strength("s") - Input.get_action_strength("w")
 	).normalized()
 	
-	if Input.get_action_strength("ui_right") or Input.get_action_strength("ui_left"):
+	if Input.get_action_strength("d") or Input.get_action_strength("a"):
 		animationPlayer.play("side_walk")
 		$Sprite2D.flip_h = true if input.x < 0 else false
 		animationPlayer.speed_scale = (velocity/maxSpeed).distance_to(Vector2.ZERO) + 0.5
-	elif Input.get_action_strength("ui_up"):
+	elif Input.get_action_strength("w"):
 		animationPlayer.play("up_walk")
 		animationPlayer.speed_scale = (velocity/maxSpeed).distance_to(Vector2.ZERO) + 0.5
-	elif Input.get_action_strength("ui_down"): 
+	elif Input.get_action_strength("s"): 
 		animationPlayer.play("down_walk")
 		animationPlayer.speed_scale = (velocity/maxSpeed).distance_to(Vector2.ZERO) + 0.5
 	else: 
@@ -32,6 +32,9 @@ func _physics_process(delta: float) -> void:
 	velocity = lerp(velocity, input * maxSpeed, lerpWeight)
 	
 	move_and_slide()
+	
+func player():
+	pass
 
 func collect(item):
 	inventory.insert(item)

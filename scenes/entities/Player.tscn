@@ -104,6 +104,8 @@ size = Vector2(12.5, 9)
 script = ExtResource("1_kpjcp")
 inventory = ExtResource("2_yjynp")
 
+[node name="tool" type="Sprite2D" parent="." unique_id=271060473]
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=672774940]
 texture_filter = 1
 texture = ExtResource("1_xhfnw")
