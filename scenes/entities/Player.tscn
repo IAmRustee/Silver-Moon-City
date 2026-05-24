@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://mem47rs0k8ye" path="res://scripts/player.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://ierx8p7qeyk0" path="res://assets/sprites/entities/player.png" id="1_xhfnw"]
 [ext_resource type="Resource" uid="uid://cuqh8uxpc1ufo" path="res://scenes/gui/player_inventory/player_inv.tres" id="2_yjynp"]
-[ext_resource type="PackedScene" uid="uid://cei8asjtxog8" path="res://scenes/gui/player_inventory/crafting.tscn" id="5_7jddb"]
 [ext_resource type="PackedScene" uid="uid://cq7uokgdlha8k" path="res://scenes/gui/player_inventory/inv_ui.tscn" id="5_j1g85"]
 
 [sub_resource type="Animation" id="Animation_kpjcp"]
@@ -126,10 +125,3 @@ offset_left = -71.0
 offset_top = -147.0
 offset_right = 71.0
 offset_bottom = -25.0
-
-[node name="CraftUI" parent="." unique_id=2078366888 instance=ExtResource("5_7jddb")]
-z_index = 7
-offset_left = 72.0
-offset_top = -147.0
-offset_right = 230.0
-offset_bottom = 34.0

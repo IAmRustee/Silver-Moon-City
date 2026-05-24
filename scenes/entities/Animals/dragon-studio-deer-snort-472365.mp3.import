@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dh5xfyemci4t5"
-path="res://.godot/imported/dragon-studio-deer-snort-472365.mp3-ca2e134e661db21b34bab99730f3708e.mp3str"
+path="res://.godot/imported/dragon-studio-deer-snort-472365.mp3-798fe91f7295d4eef53147faebc03f7c.mp3str"
 
 [deps]
 
-source_file="res://dragon-studio-deer-snort-472365.mp3"
-dest_files=["res://.godot/imported/dragon-studio-deer-snort-472365.mp3-ca2e134e661db21b34bab99730f3708e.mp3str"]
+source_file="res://scenes/entities/Animals/dragon-studio-deer-snort-472365.mp3"
+dest_files=["res://.godot/imported/dragon-studio-deer-snort-472365.mp3-798fe91f7295d4eef53147faebc03f7c.mp3str"]
 
 [params]
 

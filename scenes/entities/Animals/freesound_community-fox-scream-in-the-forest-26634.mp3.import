@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bjeka6slydcd5"
-path="res://.godot/imported/freesound_community-fox-scream-in-the-forest-26634.mp3-094aa98827956ea0d9d18958dbfef0f2.mp3str"
+path="res://.godot/imported/freesound_community-fox-scream-in-the-forest-26634.mp3-a1ff3943718d4264b5cac5f9a6ad6f7a.mp3str"
 
 [deps]
 
-source_file="res://freesound_community-fox-scream-in-the-forest-26634.mp3"
-dest_files=["res://.godot/imported/freesound_community-fox-scream-in-the-forest-26634.mp3-094aa98827956ea0d9d18958dbfef0f2.mp3str"]
+source_file="res://scenes/entities/Animals/freesound_community-fox-scream-in-the-forest-26634.mp3"
+dest_files=["res://.godot/imported/freesound_community-fox-scream-in-the-forest-26634.mp3-a1ff3943718d4264b5cac5f9a6ad6f7a.mp3str"]
 
 [params]
 
