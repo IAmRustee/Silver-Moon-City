@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bhj1v7nh8isyd"
-path="res://.godot/imported/freesound_community-slime-2-30099.mp3-90356562df53967f50f37ee50b398821.mp3str"
+path="res://.godot/imported/freesound_community-slime-2-30099.mp3-c8ac44aa1ef97696901ed59954a9fe08.mp3str"
 
 [deps]
 
-source_file="res://freesound_community-slime-2-30099.mp3"
-dest_files=["res://.godot/imported/freesound_community-slime-2-30099.mp3-90356562df53967f50f37ee50b398821.mp3str"]
+source_file="res://scenes/entities/Monster/freesound_community-slime-2-30099.mp3"
+dest_files=["res://.godot/imported/freesound_community-slime-2-30099.mp3-c8ac44aa1ef97696901ed59954a9fe08.mp3str"]
 
 [params]
 
