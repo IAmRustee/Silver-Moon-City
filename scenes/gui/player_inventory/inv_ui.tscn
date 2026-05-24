@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dcxae30wf60p4" path="res://scenes/gui/player_inventory/inv_ui.gd" id="1_fp4ns"]
 [ext_resource type="Texture2D" uid="uid://b3o1bajt4c01a" path="res://assets/sprites/gui/inventory/inventory_rect.png" id="2_16sqq"]
 [ext_resource type="PackedScene" uid="uid://bmg63i02oye5j" path="res://scenes/gui/player_inventory/slot.tscn" id="3_6374l"]
-[ext_resource type="Script" uid="uid://defhdestdiqr7" path="res://scenes/gui/player_inventory/crafting_ui.gd" id="4_j5kio"]
 [ext_resource type="Texture2D" uid="uid://bxo6khqub3e8l" path="res://assets/sprites/items/wood_sword.png" id="5_vouvf"]
 [ext_resource type="Script" uid="uid://cjrkpakcb0c00" path="res://scripts/wooden_sword_craft.gd" id="6_mvtq6"]
 [ext_resource type="Texture2D" uid="uid://d3u8c2c46cwcc" path="res://assets/sprites/items/wood.png" id="7_y4eox"]
@@ -34,6 +33,178 @@ patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
+
+[node name="Crafting" type="Control" parent="NinePatchRect" unique_id=977279523]
+anchors_preset = 0
+offset_left = 143.0
+offset_top = 1.0
+offset_right = 305.0
+offset_bottom = 187.0
+
+[node name="CraftRect" type="NinePatchRect" parent="NinePatchRect/Crafting" unique_id=1266876100]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 162.0
+offset_bottom = 186.0
+texture = ExtResource("2_16sqq")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect/Crafting/CraftRect" unique_id=1647712697]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -82.5
+offset_right = 67.0
+offset_bottom = 81.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="wooden_sword" type="Button" parent="NinePatchRect/Crafting/CraftRect/GridContainer" unique_id=1704626502]
+layout_mode = 2
+icon = ExtResource("5_vouvf")
+script = ExtResource("6_mvtq6")
+
+[node name="Label" type="Label" parent="NinePatchRect/Crafting/CraftRect/GridContainer/wooden_sword" unique_id=77354693]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.75
+offset_right = 126.0
+offset_bottom = 24.75
+theme_override_font_sizes/font_size = 6
+text = "Wooden Sword (+2 attack)
+3 "
+horizontal_alignment = 2
+
+[node name="Wood" type="Sprite2D" parent="NinePatchRect/Crafting/CraftRect/GridContainer/wooden_sword" unique_id=2011098925]
+position = Vector2(112.5, 19)
+texture = ExtResource("7_y4eox")
+
+[node name="wooden_multitool" type="Button" parent="NinePatchRect/Crafting/CraftRect/GridContainer" unique_id=1842516556]
+layout_mode = 2
+icon = ExtResource("8_s5510")
+
+[node name="Label" type="Label" parent="NinePatchRect/Crafting/CraftRect/GridContainer/wooden_multitool" unique_id=622261866]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.75
+offset_right = 126.0
+offset_bottom = 24.75
+theme_override_font_sizes/font_size = 6
+text = "Wooden Multitool (+1 efficiency)
+5"
+horizontal_alignment = 2
+
+[node name="Wood" type="Sprite2D" parent="NinePatchRect/Crafting/CraftRect/GridContainer/wooden_multitool" unique_id=358444939]
+position = Vector2(113.5, 19)
+texture = ExtResource("7_y4eox")
+
+[node name="stone_sword" type="Button" parent="NinePatchRect/Crafting/CraftRect/GridContainer" unique_id=1964780807]
+layout_mode = 2
+icon = ExtResource("9_5fdc1")
+
+[node name="Label" type="Label" parent="NinePatchRect/Crafting/CraftRect/GridContainer/stone_sword" unique_id=672565908]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.75
+offset_right = 126.0
+offset_bottom = 24.75
+theme_override_font_sizes/font_size = 6
+text = "Stone Sword (+3 attack)
+ 2,             1"
+horizontal_alignment = 2
+
+[node name="Wood" type="Sprite2D" parent="NinePatchRect/Crafting/CraftRect/GridContainer/stone_sword" unique_id=292780865]
+position = Vector2(114.5, 19)
+texture = ExtResource("7_y4eox")
+
+[node name="Rock" type="Sprite2D" parent="NinePatchRect/Crafting/CraftRect/GridContainer/stone_sword" unique_id=207745819]
+position = Vector2(89.5, 19)
+texture = ExtResource("10_oxm2l")
+
+[node name="stone_multitool" type="Button" parent="NinePatchRect/Crafting/CraftRect/GridContainer" unique_id=2112905205]
+layout_mode = 2
+icon = ExtResource("11_8kwer")
+
+[node name="Label" type="Label" parent="NinePatchRect/Crafting/CraftRect/GridContainer/stone_multitool" unique_id=779251261]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.75
+offset_right = 126.0
+offset_bottom = 24.75
+theme_override_font_sizes/font_size = 6
+text = "Stone Multitool (+3 eff)
+ 3,             2"
+horizontal_alignment = 2
+
+[node name="Wood" type="Sprite2D" parent="NinePatchRect/Crafting/CraftRect/GridContainer/stone_multitool" unique_id=1073308761]
+position = Vector2(114.5, 19)
+texture = ExtResource("7_y4eox")
+
+[node name="Rock" type="Sprite2D" parent="NinePatchRect/Crafting/CraftRect/GridContainer/stone_multitool" unique_id=19889774]
+position = Vector2(89.5, 19)
+texture = ExtResource("10_oxm2l")
+
+[node name="moonstone_sword" type="Button" parent="NinePatchRect/Crafting/CraftRect/GridContainer" unique_id=1662566436]
+layout_mode = 2
+icon = ExtResource("12_laidm")
+
+[node name="Label" type="Label" parent="NinePatchRect/Crafting/CraftRect/GridContainer/moonstone_sword" unique_id=1359152604]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.75
+offset_right = 126.0
+offset_bottom = 24.75
+theme_override_font_sizes/font_size = 6
+text = "Moonstone Sword (+5 atk)
+  2,             2,             3"
+horizontal_alignment = 2
+
+[node name="Silverwood" type="Sprite2D" parent="NinePatchRect/Crafting/CraftRect/GridContainer/moonstone_sword" unique_id=753499795]
+position = Vector2(114.5, 19)
+texture = ExtResource("13_vws6r")
+
+[node name="Silverstone" type="Sprite2D" parent="NinePatchRect/Crafting/CraftRect/GridContainer/moonstone_sword" unique_id=269250692]
+position = Vector2(90.5, 19)
+texture = ExtResource("14_cblun")
+
+[node name="Moonstone" type="Sprite2D" parent="NinePatchRect/Crafting/CraftRect/GridContainer/moonstone_sword" unique_id=1340790543]
+position = Vector2(65.5, 19)
+texture = ExtResource("15_nlgmm")
+
+[node name="moonstone multitool" type="Button" parent="NinePatchRect/Crafting/CraftRect/GridContainer" unique_id=1128957463]
+layout_mode = 2
+icon = ExtResource("16_lxain")
+
+[node name="Label" type="Label" parent="NinePatchRect/Crafting/CraftRect/GridContainer/moonstone multitool" unique_id=1599188061]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.75
+offset_right = 126.0
+offset_bottom = 24.75
+theme_override_font_sizes/font_size = 6
+text = "Moonstone Multitool (+5 eff)
+  3,             2,             2"
+horizontal_alignment = 2
+
+[node name="Silverwood" type="Sprite2D" parent="NinePatchRect/Crafting/CraftRect/GridContainer/moonstone multitool" unique_id=1680366236]
+position = Vector2(114.5, 19)
+texture = ExtResource("13_vws6r")
+
+[node name="Silverstone" type="Sprite2D" parent="NinePatchRect/Crafting/CraftRect/GridContainer/moonstone multitool" unique_id=1764616093]
+position = Vector2(90.5, 19)
+texture = ExtResource("14_cblun")
+
+[node name="Moonstone" type="Sprite2D" parent="NinePatchRect/Crafting/CraftRect/GridContainer/moonstone multitool" unique_id=1810948032]
+position = Vector2(65.5, 19)
+texture = ExtResource("15_nlgmm")
 
 [node name="GridContainer" type="GridContainer" parent="NinePatchRect" unique_id=762396323]
 layout_mode = 1
@@ -110,173 +281,4 @@ layout_mode = 2
 [node name="InvUISlot20" parent="NinePatchRect/GridContainer" unique_id=455422773 instance=ExtResource("3_6374l")]
 layout_mode = 2
 
-[node name="Crafting" type="Control" parent="." unique_id=977279523]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("4_j5kio")
-
-[node name="CraftRect" type="NinePatchRect" parent="Crafting" unique_id=1266876100]
-layout_mode = 0
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 162.0
-offset_bottom = 186.0
-texture = ExtResource("2_16sqq")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-
-[node name="GridContainer" type="GridContainer" parent="Crafting/CraftRect" unique_id=1647712697]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -65.0
-offset_top = -82.5
-offset_right = 67.0
-offset_bottom = 81.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="wooden_sword" type="Button" parent="Crafting/CraftRect/GridContainer" unique_id=1704626502]
-layout_mode = 2
-icon = ExtResource("5_vouvf")
-script = ExtResource("6_mvtq6")
-
-[node name="Label" type="Label" parent="Crafting/CraftRect/GridContainer/wooden_sword" unique_id=77354693]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 1.75
-offset_right = 126.0
-offset_bottom = 24.75
-theme_override_font_sizes/font_size = 6
-text = "Wooden Sword (+2 attack)
-3 "
-horizontal_alignment = 2
-
-[node name="Wood" type="Sprite2D" parent="Crafting/CraftRect/GridContainer/wooden_sword" unique_id=2011098925]
-position = Vector2(112.5, 19)
-texture = ExtResource("7_y4eox")
-
-[node name="wooden_multitool" type="Button" parent="Crafting/CraftRect/GridContainer" unique_id=1842516556]
-layout_mode = 2
-icon = ExtResource("8_s5510")
-
-[node name="Label" type="Label" parent="Crafting/CraftRect/GridContainer/wooden_multitool" unique_id=622261866]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 1.75
-offset_right = 126.0
-offset_bottom = 24.75
-theme_override_font_sizes/font_size = 6
-text = "Wooden Multitool (+1 efficiency)
-5"
-horizontal_alignment = 2
-
-[node name="Wood" type="Sprite2D" parent="Crafting/CraftRect/GridContainer/wooden_multitool" unique_id=358444939]
-position = Vector2(113.5, 19)
-texture = ExtResource("7_y4eox")
-
-[node name="stone_sword" type="Button" parent="Crafting/CraftRect/GridContainer" unique_id=1964780807]
-layout_mode = 2
-icon = ExtResource("9_5fdc1")
-
-[node name="Label" type="Label" parent="Crafting/CraftRect/GridContainer/stone_sword" unique_id=672565908]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 1.75
-offset_right = 126.0
-offset_bottom = 24.75
-theme_override_font_sizes/font_size = 6
-text = "Stone Sword (+3 attack)
- 2,             1"
-horizontal_alignment = 2
-
-[node name="Wood" type="Sprite2D" parent="Crafting/CraftRect/GridContainer/stone_sword" unique_id=292780865]
-position = Vector2(114.5, 19)
-texture = ExtResource("7_y4eox")
-
-[node name="Rock" type="Sprite2D" parent="Crafting/CraftRect/GridContainer/stone_sword" unique_id=207745819]
-position = Vector2(89.5, 19)
-texture = ExtResource("10_oxm2l")
-
-[node name="stone_multitool" type="Button" parent="Crafting/CraftRect/GridContainer" unique_id=2112905205]
-layout_mode = 2
-icon = ExtResource("11_8kwer")
-
-[node name="Label" type="Label" parent="Crafting/CraftRect/GridContainer/stone_multitool" unique_id=779251261]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 1.75
-offset_right = 126.0
-offset_bottom = 24.75
-theme_override_font_sizes/font_size = 6
-text = "Stone Multitool (+3 eff)
- 3,             2"
-horizontal_alignment = 2
-
-[node name="Wood" type="Sprite2D" parent="Crafting/CraftRect/GridContainer/stone_multitool" unique_id=1073308761]
-position = Vector2(114.5, 19)
-texture = ExtResource("7_y4eox")
-
-[node name="Rock" type="Sprite2D" parent="Crafting/CraftRect/GridContainer/stone_multitool" unique_id=19889774]
-position = Vector2(89.5, 19)
-texture = ExtResource("10_oxm2l")
-
-[node name="moonstone_sword" type="Button" parent="Crafting/CraftRect/GridContainer" unique_id=1662566436]
-layout_mode = 2
-icon = ExtResource("12_laidm")
-
-[node name="Label" type="Label" parent="Crafting/CraftRect/GridContainer/moonstone_sword" unique_id=1359152604]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 1.75
-offset_right = 126.0
-offset_bottom = 24.75
-theme_override_font_sizes/font_size = 6
-text = "Moonstone Sword (+5 atk)
-  2,             2,             3"
-horizontal_alignment = 2
-
-[node name="Silverwood" type="Sprite2D" parent="Crafting/CraftRect/GridContainer/moonstone_sword" unique_id=753499795]
-position = Vector2(114.5, 19)
-texture = ExtResource("13_vws6r")
-
-[node name="Silverstone" type="Sprite2D" parent="Crafting/CraftRect/GridContainer/moonstone_sword" unique_id=269250692]
-position = Vector2(90.5, 19)
-texture = ExtResource("14_cblun")
-
-[node name="Moonstone" type="Sprite2D" parent="Crafting/CraftRect/GridContainer/moonstone_sword" unique_id=1340790543]
-position = Vector2(65.5, 19)
-texture = ExtResource("15_nlgmm")
-
-[node name="moonstone multitool" type="Button" parent="Crafting/CraftRect/GridContainer" unique_id=1128957463]
-layout_mode = 2
-icon = ExtResource("16_lxain")
-
-[node name="Label" type="Label" parent="Crafting/CraftRect/GridContainer/moonstone multitool" unique_id=1599188061]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 1.75
-offset_right = 126.0
-offset_bottom = 24.75
-theme_override_font_sizes/font_size = 6
-text = "Moonstone Multitool (+5 eff)
-  3,             2,             2"
-horizontal_alignment = 2
-
-[node name="Silverwood" type="Sprite2D" parent="Crafting/CraftRect/GridContainer/moonstone multitool" unique_id=1680366236]
-position = Vector2(114.5, 19)
-texture = ExtResource("13_vws6r")
-
-[node name="Silverstone" type="Sprite2D" parent="Crafting/CraftRect/GridContainer/moonstone multitool" unique_id=1764616093]
-position = Vector2(90.5, 19)
-texture = ExtResource("14_cblun")
-
-[node name="Moonstone" type="Sprite2D" parent="Crafting/CraftRect/GridContainer/moonstone multitool" unique_id=1810948032]
-position = Vector2(65.5, 19)
-texture = ExtResource("15_nlgmm")
+[connection signal="pressed" from="NinePatchRect/Crafting/CraftRect/GridContainer/wooden_sword" to="NinePatchRect/Crafting/CraftRect/GridContainer/wooden_sword" method="_on_pressed"]
