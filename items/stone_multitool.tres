@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://crxmqfbo6s0v3"]
+
+[ext_resource type="Script" uid="uid://dpw6hq6kqo3j6" path="res://scripts/inventory_item.gd.gd" id="1_jago0"]
+[ext_resource type="Texture2D" uid="uid://dtl6hnwbypmj4" path="res://assets/sprites/items/stone_multitool.png" id="2_pm1i4"]
+
+[resource]
+script = ExtResource("1_jago0")
+name = "Stone Multitool"
+texture = ExtResource("2_pm1i4")
+metadata/_custom_type_script = "uid://dpw6hq6kqo3j6"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://c4yf0ux068yeo"]
+
+[ext_resource type="Script" uid="uid://dpw6hq6kqo3j6" path="res://scripts/inventory_item.gd.gd" id="1_iju02"]
+[ext_resource type="Texture2D" uid="uid://bvnm78e0fiwq1" path="res://assets/sprites/items/moonstone.png" id="2_l3hun"]
+
+[resource]
+script = ExtResource("1_iju02")
+name = "Moonstone"
+texture = ExtResource("2_l3hun")
+metadata/_custom_type_script = "uid://dpw6hq6kqo3j6"

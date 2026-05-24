@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://bkloftwkwigbw"]
+
+[ext_resource type="Script" uid="uid://dpw6hq6kqo3j6" path="res://scripts/inventory_item.gd.gd" id="1_yte86"]
+[ext_resource type="Texture2D" uid="uid://ud2eona2rqj4" path="res://assets/sprites/items/wooden_multitool.png" id="2_olsku"]
+
+[resource]
+script = ExtResource("1_yte86")
+name = "Wooden Multitool"
+texture = ExtResource("2_olsku")
+metadata/_custom_type_script = "uid://dpw6hq6kqo3j6"
