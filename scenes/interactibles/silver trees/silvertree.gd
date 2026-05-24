@@ -2,13 +2,17 @@ extends Node2D
 
 var state = "whole"
 var player_in_area = false
-var cut_hp: int = 5
+var cut_hp: int = 10
 
-var wood = preload("res://items/wood.tscn")
+var silverwood = preload("res://items/silverwood.tscn")
+var silverstone = preload("res://items/silverstone.tscn")
+
 @onready var chop: AudioStreamPlayer2D = $StaticBody2D/chop
 @onready var fall: AudioStreamPlayer2D = $StaticBody2D/fall
 
-@export var item: InventoryItem
+@export var silverwoodItem: InventoryItem
+@export var silverstoneItem: InventoryItem
+
 var player = null
 
 func _ready() -> void:
@@ -27,7 +31,7 @@ func _process(delta: float) -> void:
 			if Input.is_action_just_pressed("interact") and cut_hp == 0:
 				state = "cut"
 				chop.play()
-				drop_wood()
+				drop_item()
 
 func _on_pickable_area_body_entered(body):
 	if body.has_method("player"):
@@ -42,12 +46,20 @@ func _on_pickable_area_body_exited(body: Node2D) -> void:
 func _on_growth_timer_timeout() -> void:
 	if state == "cut":
 		state = "whole"
-		cut_hp = 5
+		cut_hp = 10
 
-func drop_wood():
-	var wood_instance = wood.instantiate()
-	wood_instance.global_position = $StaticBody2D/Marker2D.global_position
-	get_parent().add_child(wood_instance)
+func drop_item():
+	var item_instance
+	var item
+	var drop: int = randi_range(0, 2)
+	if drop > 1: 
+		item_instance = silverstone.instantiate()
+		item = silverstoneItem
+	else:
+		item_instance = silverwood.instantiate()
+		item = silverwoodItem
+	item_instance.global_position = $StaticBody2D/Marker2D.global_position
+	get_parent().add_child(item_instance)
 	player.collect(item)
 	await get_tree().create_timer(3).timeout
 	$StaticBody2D/growth_timer.start()

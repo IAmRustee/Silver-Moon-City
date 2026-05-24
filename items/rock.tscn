@@ -1,17 +1,17 @@
-[gd_scene format=3 uid="uid://dgm6ltfb65qyp"]
+[gd_scene format=3 uid="uid://ba15hlw43b7w8"]
 
-[ext_resource type="Texture2D" uid="uid://d3u8c2c46cwcc" path="res://assets/sprites/items/wood.png" id="1_ar65i"]
-[ext_resource type="Script" uid="uid://ctr7loop7hbo7" path="res://items/items.gd" id="1_g713r"]
+[ext_resource type="Script" uid="uid://ctr7loop7hbo7" path="res://items/items.gd" id="1_yc183"]
+[ext_resource type="Texture2D" uid="uid://du862u0tat6s1" path="res://assets/sprites/items/rock.png" id="2_yc183"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ar65i"]
-atlas = ExtResource("1_ar65i")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxntf"]
+atlas = ExtResource("2_yc183")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_myc5g"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ar65i")
+"texture": SubResource("AtlasTexture_dxntf")
 }],
 "loop": true,
 "name": &"wood",
@@ -144,10 +144,10 @@ _data = {
 &"falling_from_tree": SubResource("Animation_ar65i")
 }
 
-[node name="wood" type="StaticBody2D" unique_id=581303165]
+[node name="rock" type="StaticBody2D" unique_id=581303165]
 z_index = 1
 y_sort_enabled = true
-script = ExtResource("1_g713r")
+script = ExtResource("1_yc183")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1278787142]
 sprite_frames = SubResource("SpriteFrames_myc5g")

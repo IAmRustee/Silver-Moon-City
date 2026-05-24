@@ -1,26 +1,25 @@
-[gd_scene format=3 uid="uid://2hqiahku3fl8"]
+[gd_scene format=3 uid="uid://cealexoew5f30"]
 
-[ext_resource type="Script" uid="uid://ftw34ym84fro" path="res://scenes/interactibles/trees/tree.gd" id="1_hj45g"]
-[ext_resource type="Resource" uid="uid://bxusx2ru00e44" path="res://items/wood.tres" id="2_gsgis"]
-[ext_resource type="Texture2D" uid="uid://bwlr0keyio2gu" path="res://assets/sprites/interactibles/tree_3.png" id="3_gsgis"]
-[ext_resource type="AudioStream" uid="uid://db85k2dld68nu" path="res://assets/audio/interaction/chop.ogg" id="4_7x5xj"]
+[ext_resource type="Script" uid="uid://ftw34ym84fro" path="res://scenes/interactibles/trees/tree.gd" id="1_473ai"]
+[ext_resource type="Resource" uid="uid://bxusx2ru00e44" path="res://items/wood.tres" id="2_7b0lm"]
+[ext_resource type="Texture2D" uid="uid://d3i0hlgt5xed3" path="res://assets/sprites/interactibles/tree_2.png" id="3_jkqk4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f76n7"]
 size = Vector2(12.5, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hj45g"]
-atlas = ExtResource("3_gsgis")
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo8ih"]
+atlas = ExtResource("3_jkqk4")
 region = Rect2(96, 0, 96, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7x5xj"]
-atlas = ExtResource("3_gsgis")
+[sub_resource type="AtlasTexture" id="AtlasTexture_tppot"]
+atlas = ExtResource("3_jkqk4")
 region = Rect2(0, 0, 96, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e8fpi"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hj45g")
+"texture": SubResource("AtlasTexture_mo8ih")
 }],
 "loop": true,
 "name": &"cut",
@@ -28,7 +27,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7x5xj")
+"texture": SubResource("AtlasTexture_tppot")
 }],
 "loop": true,
 "name": &"whole",
@@ -39,15 +38,11 @@ animations = [{
 size = Vector2(32, 32)
 
 [node name="tree_2" type="Node2D" unique_id=20202587]
-z_index = 1
-y_sort_enabled = true
 position = Vector2(16, 16)
-script = ExtResource("1_hj45g")
-item = ExtResource("2_gsgis")
+script = ExtResource("1_473ai")
+item = ExtResource("2_7b0lm")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=944659364]
-z_index = 1
-y_sort_enabled = true
 
 [node name="tree_hitbox" type="CollisionShape2D" parent="StaticBody2D" unique_id=608348624]
 position = Vector2(0, 4)
@@ -71,11 +66,8 @@ wait_time = 10.0
 [node name="Marker2D" type="Marker2D" parent="StaticBody2D" unique_id=2027029605]
 position = Vector2(0, -11)
 
-[node name="chop" type="AudioStreamPlayer2D" parent="StaticBody2D" unique_id=884765630]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(0, -6)
-stream = ExtResource("4_7x5xj")
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="StaticBody2D" unique_id=1636573798]
+position = Vector2(28, 14)
 
 [connection signal="body_entered" from="StaticBody2D/pickable_area" to="." method="_on_pickable_area_body_entered"]
 [connection signal="body_exited" from="StaticBody2D/pickable_area" to="." method="_on_pickable_area_body_exited"]

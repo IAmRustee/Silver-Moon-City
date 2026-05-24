@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://dgm6ltfb65qyp"]
+[gd_scene format=3 uid="uid://qwuwgto0m816"]
 
 [ext_resource type="Texture2D" uid="uid://d3u8c2c46cwcc" path="res://assets/sprites/items/wood.png" id="1_ar65i"]
-[ext_resource type="Script" uid="uid://ctr7loop7hbo7" path="res://items/items.gd" id="1_g713r"]
+[ext_resource type="Script" uid="uid://ka6luf8p12id" path="res://items/wood.gd" id="1_hpk0a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ar65i"]
 atlas = ExtResource("1_ar65i")
@@ -147,7 +147,7 @@ _data = {
 [node name="wood" type="StaticBody2D" unique_id=581303165]
 z_index = 1
 y_sort_enabled = true
-script = ExtResource("1_g713r")
+script = ExtResource("1_hpk0a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1278787142]
 sprite_frames = SubResource("SpriteFrames_myc5g")
