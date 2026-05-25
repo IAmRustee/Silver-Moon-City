@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://brkhsmi32rvev" path="res://assets/sprites/silver_moon_city/silver_tree_shadow.png" id="6_r4k52"]
 [ext_resource type="Texture2D" uid="uid://cycao1gnutyn6" path="res://assets/sprites/silver_moon_city/silver_plants.png" id="7_r4k52"]
 [ext_resource type="Texture2D" uid="uid://cfwd1mjoe7ue6" path="res://assets/sprites/silver_moon_city/silver_moon_props.png" id="8_q2ge6"]
+[ext_resource type="PackedScene" uid="uid://bdyhwwlx1rwod" path="res://scenes/entities/Monster/Zombie.tscn" id="10_css4l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x4j2f"]
 texture = ExtResource("1_mpecr")
@@ -985,7 +986,10 @@ tile_set = SubResource("TileSet_ywbwy")
 [node name="CharacterBody2D" parent="Node2D" unique_id=1727070484 instance=ExtResource("5_aavqd")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(72, 54)
+position = Vector2(232, 786)
 
 [node name="follow_camera" type="Camera2D" parent="Node2D/CharacterBody2D" unique_id=970253031]
 zoom = Vector2(2, 2)
+
+[node name="Zombie" parent="Node2D" unique_id=1651921151 instance=ExtResource("10_css4l")]
+position = Vector2(276, 762)

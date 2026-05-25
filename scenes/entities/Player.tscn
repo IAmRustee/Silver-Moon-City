@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://biwh02lwyddle"]
 
-[ext_resource type="Script" uid="uid://mem47rs0k8ye" path="res://scripts/player.gd" id="1_kpjcp"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://ierx8p7qeyk0" path="res://assets/sprites/entities/player.png" id="1_xhfnw"]
 [ext_resource type="Resource" uid="uid://cuqh8uxpc1ufo" path="res://scenes/gui/player_inventory/player_inv.tres" id="2_yjynp"]
 [ext_resource type="PackedScene" uid="uid://cq7uokgdlha8k" path="res://scenes/gui/player_inventory/inv_ui.tscn" id="5_j1g85"]
@@ -54,6 +54,9 @@ tracks/0/keys = {
 "values": [1, 0]
 }
 
+[sub_resource type="Animation" id="Animation_yjynp"]
+resource_name = "side_attack"
+
 [sub_resource type="Animation" id="Animation_o7et6"]
 resource_name = "side_walk"
 length = 1.5333333
@@ -93,6 +96,7 @@ _data = {
 &"RESET": SubResource("Animation_kpjcp"),
 &"down_walk": SubResource("Animation_24gqh"),
 &"idle front": SubResource("Animation_e80uo"),
+&"side_attack": SubResource("Animation_yjynp"),
 &"side_walk": SubResource("Animation_o7et6"),
 &"up_walk": SubResource("Animation_kne1u")
 }
