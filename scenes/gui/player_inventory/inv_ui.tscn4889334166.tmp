@@ -7,12 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bxo6khqub3e8l" path="res://assets/sprites/items/wood_sword.png" id="5_vouvf"]
 [ext_resource type="Script" uid="uid://cjrkpakcb0c00" path="res://scripts/wooden_sword_craft.gd" id="6_mvtq6"]
 [ext_resource type="Resource" uid="uid://bkloftwkwigbw" path="res://items/wooden_multitool.tres" id="6_y4eox"]
-[ext_resource type="Resource" uid="uid://b72gvccoli5m2" path="res://items/wooden_sword.tres" id="7_vouvf"]
 [ext_resource type="Texture2D" uid="uid://d3u8c2c46cwcc" path="res://assets/sprites/items/wood.png" id="7_y4eox"]
 [ext_resource type="Texture2D" uid="uid://ud2eona2rqj4" path="res://assets/sprites/items/wooden_multitool.png" id="8_s5510"]
 [ext_resource type="Texture2D" uid="uid://cxxfv02r8fovd" path="res://assets/sprites/items/stone_sword.png" id="9_5fdc1"]
 [ext_resource type="Texture2D" uid="uid://du862u0tat6s1" path="res://assets/sprites/items/rock.png" id="10_oxm2l"]
-[ext_resource type="Script" uid="uid://bnwd8dkg16p3c" path="res://scripts/wooden_multitool_craft.gd" id="10_y4eox"]
 [ext_resource type="Texture2D" uid="uid://dtl6hnwbypmj4" path="res://assets/sprites/items/stone_multitool.png" id="11_8kwer"]
 [ext_resource type="Texture2D" uid="uid://bjrs6je1ll1d" path="res://assets/sprites/items/moonstone_sword.png" id="12_laidm"]
 [ext_resource type="Texture2D" uid="uid://tonoq3n4eg0n" path="res://assets/sprites/items/silverwood.png" id="13_vws6r"]
@@ -151,7 +149,7 @@ layout_mode = 2
 icon = ExtResource("5_vouvf")
 script = ExtResource("6_mvtq6")
 wood = ExtResource("5_mvtq6")
-result = ExtResource("7_vouvf")
+result = ExtResource("6_y4eox")
 
 [node name="Label" type="Label" parent="Crafting/CraftRect/GridContainer/wooden_sword" unique_id=77354693]
 layout_mode = 0
@@ -171,9 +169,6 @@ texture = ExtResource("7_y4eox")
 [node name="wooden_multitool" type="Button" parent="Crafting/CraftRect/GridContainer" unique_id=1842516556]
 layout_mode = 2
 icon = ExtResource("8_s5510")
-script = ExtResource("10_y4eox")
-wood = ExtResource("5_mvtq6")
-result = ExtResource("6_y4eox")
 
 [node name="Label" type="Label" parent="Crafting/CraftRect/GridContainer/wooden_multitool" unique_id=622261866]
 layout_mode = 0
@@ -291,4 +286,3 @@ position = Vector2(65.5, 19)
 texture = ExtResource("15_nlgmm")
 
 [connection signal="pressed" from="Crafting/CraftRect/GridContainer/wooden_sword" to="Crafting/CraftRect/GridContainer/wooden_sword" method="_on_pressed"]
-[connection signal="pressed" from="Crafting/CraftRect/GridContainer/wooden_multitool" to="Crafting/CraftRect/GridContainer/wooden_multitool" method="_on_pressed"]

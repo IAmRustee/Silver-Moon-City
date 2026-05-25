@@ -14,8 +14,8 @@ func craftWoodSword(inventory: Inv, ing: InventoryItem, crafted_result: Inventor
 	if slot == null:
 		print("Slot is null")
 		return
-	if slot.amount >= 3:
-		slot.amount -= 3
+	if slot.amount >= 5:
+		slot.amount -= 5
 		inventory.insert(crafted_result)
 		inventory.update.emit()
 		print("Crafted")

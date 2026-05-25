@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://bhqgvags0ikos"]
+
+[ext_resource type="Texture2D" uid="uid://d3i0hlgt5xed3" path="res://assets/sprites/interactibles/tree_2.png" id="1_fnhve"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swp26"]
+size = Vector2(12.5, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo8ih"]
+atlas = ExtResource("1_fnhve")
+region = Rect2(96, 0, 96, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tppot"]
+atlas = ExtResource("1_fnhve")
+region = Rect2(0, 0, 96, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_agb1n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo8ih")
+}],
+"loop": true,
+"name": &"cut",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tppot")
+}],
+"loop": true,
+"name": &"whole",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cumm6"]
+size = Vector2(32, 32)
+
+[node name="Node2D" type="Node2D" unique_id=1222459340]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1879807540]
+z_index = 1
+y_sort_enabled = true
+
+[node name="tree_hitbox" type="CollisionShape2D" parent="StaticBody2D" unique_id=1569241460]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_swp26")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=1482919164]
+position = Vector2(0, -66)
+sprite_frames = SubResource("SpriteFrames_agb1n")
+animation = &"whole"
+
+[node name="pickable_area" type="Area2D" parent="StaticBody2D" unique_id=844433739]
+position = Vector2(-16, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/pickable_area" unique_id=1401383488]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_cumm6")
+
+[node name="growth_timer" type="Timer" parent="StaticBody2D" unique_id=440049717]
+wait_time = 10.0
+
+[node name="Marker2D" type="Marker2D" parent="StaticBody2D" unique_id=80755427]
+position = Vector2(0, -11)
